@@ -71,9 +71,9 @@ public class RegistroController {
     public static ModelAndView listTipo(Request req, Response res) {
 
         RegistroDao userDao = new RegistroDao();
+        
         String filtro = req.queryParams("filtro");
-
-        int user_id = Integer.parseInt(req.session().attribute("user_id"));
+        int user_id = Integer.parseInt(req.session().attribute("user_id")); //setado lá no auth
         System.out.println(user_id);
         
         Map<String, Object> model = new HashMap<>();
@@ -88,7 +88,6 @@ public class RegistroController {
         
         int user_id = Integer.parseInt(req.session().attribute("user_id"));
         RegistroDao userDao = new RegistroDao();
-        System.out.println(user_id);
         
         Map<String, Object> model = new HashMap<>();
         model.put("registros", userDao.getByDate(user_id, data_inicial, data_final)); // getUsers() retorna uma lista 

@@ -5,15 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Listagem pela Data</title>
 </head>
 
 <body>
+    <h1>IF Bank</h1> <br>
+
+    <h2>Registros</h2> <br>
+    <button><a href="/">Voltar ao seu painel</a></button> <br>
     <ul>
         <h4>
             {{#each registros}}
-            <li><strong>{{this.description}}</strong> - {{this.valor}} <a href="/registros/{{this.id}}/details">Mais
-                    informações</a></li>
+            <li><strong>{{this.description}}</strong> - {{this.valor}} - {{this.tipo}} criado em: {{this.created_at}}
+            </li>
             {{/each}}
         </h4>
     </ul>

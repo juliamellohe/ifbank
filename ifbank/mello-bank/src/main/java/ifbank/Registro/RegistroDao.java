@@ -117,7 +117,7 @@ public class RegistroDao {
 
         try {
             
-            String sql = "select * from registros where user_id = ? and tipo like '?';";
+            String sql = "select * FROM registros WHERE user_id = ? and tipo LIKE '?%';";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, user_id);
             ps.setString(2, filtro);
@@ -147,7 +147,7 @@ public class RegistroDao {
 
         try {
             
-            String sql = "select * from registros where user_id = ? and created_at between datetime '?' and datetime '?';";
+            String sql = "SELECT * FROM registros WHERE user_id = ? and created_at BETWEEN '?' and '?' ORDER BY created_at ASC;";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, user_id);
             ps.setString(2, date);
@@ -163,7 +163,7 @@ public class RegistroDao {
             }
 
         } catch (Exception error) {
-            System.out.println("Erro ao tentar buscar registros pelas datas ");
+            System.out.println("Erro ao tentar buscar registros pelas datas");
             error.printStackTrace();
         }
         return registros;

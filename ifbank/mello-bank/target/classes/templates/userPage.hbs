@@ -22,7 +22,7 @@
 
     <form action="/filtroTipo" method="POST">
         <input type="text" name="filtro" placeholder="Filtrar por tipo">
-        <input type="submit" name="buscar"></input>
+        <input type="submit" name=""></input>
     </form>
 
     <br>
@@ -30,7 +30,7 @@
     <form action="/filtroData" method="POST">
         <input type="text" name="data_inicial" placeholder="Data inicial(yyyy/mm/dd)">
         <input type="text" name="data_final" placeholder="Data final">
-        <input type="submit" name="filtrar"></input>
+        <input type="submit" name=""></input>
     </form> <br>
 
     <a href="/createRegistro.html">Criar um registro</a> <br>
@@ -40,7 +40,7 @@
             {{#each registros}}
             <li><strong>{{this.description}}</strong>
                 <h4>R${{this.valor}}</h4>
-                <h5><a href="/registros/{{this.id}}/details">Mais informações</a></h5> <br>
+                <h6><a href="/registros/{{this.id}}/details">Mais informações</a></h6> <br>
             </li>
             {{/each}}
         </h3>
