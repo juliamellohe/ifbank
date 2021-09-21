@@ -24,7 +24,7 @@ public class App
         // LISTAR USERS
         get("/usersList", (req, res) -> UserController.list(req, res), new HandlebarsTemplateEngine());
         
-        //VALIDAÇÃO
+        //VALIDAÇÃO DE LOGIN
         post("/logar", authController.validar);
 
         //USUÁRIO CADASTRADO
@@ -33,35 +33,37 @@ public class App
         //PAGINA DO USUARIO
         get("/userHome", (req, res) -> RegistroController.list(req, res), new HandlebarsTemplateEngine());
         
-        //REGISTROS
+        //PAGINA DO USUARIO - REGISTROS
         get("/registros/:id/details", (req, res) -> RegistroController.detail(req, res), new HandlebarsTemplateEngine());
         post("/registros/:id/edit", RegistroController.edit);
         get("/registros/:id/delete", RegistroController.delete);
         
-        //FILTROS
+        //PAGINA DO USUARIO - FILTRAR BUSCA
         post("/filtroTipo", (req, res) -> RegistroController.listTipo(req, res), new HandlebarsTemplateEngine());
         post("/filtroData", (req, res) -> RegistroController.listDate(req, res), new HandlebarsTemplateEngine());
 
 
-
+        //EXEMPLO DE VALIDAÇÃO DE LOGIN NECESSÁRIA PARA ENTRAR EM UMA ROTA
         get("/userPage", (req, res) -> {
             //null associável a Boolean
             Boolean login = req.session().attribute("login");
 
             if (login != null && login == true)
-                return "Acessível apenas logando, logado:  " + req.session().attribute("login");
+                return "Logado";
 
-            res.header("Location", "/");
+            res.header("Location", "/"); //header, value
             res.redirect("/");
             return null;
         });
 
+        // FAZER LOGOUT
         get("/logout", (req, res) -> {
             req.session().invalidate();
             res.redirect("/");
             return null;
         });
 
+        //ADICIONAR REGISTRO SOMENTE SE ESTIVER COM LOGIN VÁLIDO
         post("/adicionarRegistro", (req, res) -> {
 
             Boolean login = req.session().attribute("login");

@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Ediçao de registro</title>
+    <link rel="stylesheet" href="css/main.css">
+
 </head>
+
 <body>
-        <h1>Detalhes do Registro:</h1>
+    <h2>Detalhes do Registro:</h2>
 
     <ul>
-
-        <li>Descrição: {{registro.description}} <br> </li>
-        <li>valor: R$ {{registro.valor}} <br> </li>
-        <li>Tipo: {{registro.tipo}} <br></li>
-        <li>Efetuado em {{registro.created_at}} </li>
-
+        <h3>
+            <li>Descrição: {{registro.description}} <br> </li>
+            <li>valor: R$ {{registro.valor}} <br> </li>
+            <li>Tipo: {{registro.tipo}} <br></li>
+            <li>Efetuado em {{registro.created_at}} </li>
+        </h3>
     </ul>
 
     <br>
@@ -23,7 +28,7 @@
     <button><a href="/userHome">Voltar para sua página</a></button>
 
     <br>
-    
+
     <h2>Edite seu registro abaixo:</h2>
     <form action="/registros/{{registro.id}}/edit" method="POST">
 
@@ -41,7 +46,8 @@
     </form>
 
     <br>
-    
-    <button><a href="/registros/{{registro.id}}/delete">Excluir Registro</a></button>
+
+    <h4><button><a href="/registros/{{registro.id}}/delete">Excluir Registro</a></button></h4>
 </body>
+
 </html>
