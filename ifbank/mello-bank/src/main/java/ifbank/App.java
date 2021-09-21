@@ -2,14 +2,9 @@ package ifbank;
 
 import static spark.Spark.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
 import ifbank.Registro.RegistroController;
 import ifbank.User.UserController;
 import ifbank.auth.authController;
-import ifbank.config.Database;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -32,7 +27,7 @@ public class App
         //VALIDAÇÃO
         post("/logar", authController.validar);
 
-        //CADASTRAR USUÁRIOS
+        //USUÁRIO CADASTRADO
         post("/newUser", (req, res) -> UserController.create(req, res), new HandlebarsTemplateEngine());
         
         //PAGINA DO USUARIO

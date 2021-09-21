@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lista de Usuários</title>
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+    <h1>IF Bank</h1> <br>
+
+    <h2>Painel de Usuários</h2>
+    
+    <ul>
+        <h3>
+        {{#each users}}
+        <li>{{this.name}}  <h5>cadastro realizado em: {{this.data_cadastro}}</h5></li>
+        {{/each}}
+        </h3>
+    </ul>
+
+    <button><a href="/">Voltar para Página inicial</a></button>
+
+</body>
+</html>

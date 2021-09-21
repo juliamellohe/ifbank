@@ -1,37 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>User home page</title>
+    <link rel="stylesheet" href="css/main.css">
+
 </head>
+
 <body>
-        <h1>IF Bank</h1> <br>
+    <h1>IF Bank</h1> <br>
 
     <h2>Seu painel</h2> <br>
     <button><a href="logout">Fazer Logout</a></button> <br>
 
-    <a href="/createRegistro.html">Criar um registro</a>
 
     <h3>Seus registros e transições:</h3>
 
     <form action="/filtroTipo" method="POST">
-            <input type="text" name="filtro" placeholder="Filtrar por tipo">
-            <input type="submit" name="buscar"></input>
+        <input type="text" name="filtro" placeholder="Filtrar por tipo">
+        <input type="submit" name="buscar"></input>
     </form>
 
+    <br>
+
     <form action="/filtroData" method="POST">
-            <input type="text" name="data_inicial" placeholder="Data inicial(yyyy/mm/dd)">
-            <input type="text" name="data_final" placeholder="Data final">
+        <input type="text" name="data_inicial" placeholder="Data inicial(yyyy/mm/dd)">
+        <input type="text" name="data_final" placeholder="Data final">
         <input type="submit" name="filtrar"></input>
-    </form>
+    </form> <br>
+
+    <a href="/createRegistro.html">Criar um registro</a> <br>
+
     <ul>
-        <h4>
-        {{#each registros}}
-        <li><strong>{{this.description}}</strong> - R${{this.valor}}   <a href="/registros/{{this.id}}/details">Mais informações</a></li>
-        {{/each}}
-        </h4>
+        <h3>
+            {{#each registros}}
+            <li><strong>{{this.description}}</strong>
+                <h4>R${{this.valor}}</h4>
+                <h5><a href="/registros/{{this.id}}/details">Mais informações</a></h5> <br>
+            </li>
+            {{/each}}
+        </h3>
     </ul>
 </body>
+
 </html>
